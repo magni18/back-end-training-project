@@ -21,6 +21,8 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
+    Console.WriteLine("Weather forecast requested");
+
     var forecast =  Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (

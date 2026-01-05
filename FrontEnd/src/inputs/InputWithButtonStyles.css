@@ -1,0 +1,6 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  gap: 8px;
+}
