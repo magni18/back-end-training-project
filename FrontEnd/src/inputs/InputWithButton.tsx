@@ -2,7 +2,7 @@ import React from "react";
 import "./InputWithButtonStyles.css";
 
 type InputWithButtonProps = {
-  SetContainerInput: React.Dispatch<React.SetStateAction<string>>;
+  SetContainerInput: (intpu: string) => void;
 };
 
 const InputWithButton = (props: InputWithButtonProps) => {

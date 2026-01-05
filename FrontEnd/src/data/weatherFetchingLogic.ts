@@ -5,8 +5,8 @@ export async function GetWeather(count: number): Promise<WeatherData[][]> {
   const allData: WeatherData[][] = [];
 
   for (let index = 0; index < count; index++) {
-    const response = await fetch(`${BackendURL}/weatherforecast/`, {
-      method: "POST",
+    const response = await fetch(`${BackendURL}/weatherforecast`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
