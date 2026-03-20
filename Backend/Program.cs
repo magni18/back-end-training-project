@@ -1,3 +1,5 @@
+using Backend.Customer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -47,6 +49,9 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+var customerGetter = new GetDataFunctions();
+app.MapGet("/customerage/{name}", customerGetter.GetAge).WithName("GetCustomerAge");
 
 app.Run();
 
