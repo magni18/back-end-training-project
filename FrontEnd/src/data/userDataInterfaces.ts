@@ -1,4 +1,5 @@
-export interface UserData {
-  name: string;
-  age: number;
+export interface Customer {
+  Id: number;
+  Name: string;
+  Age: number;
 }

@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Customer
 {
@@ -37,6 +38,26 @@ namespace Backend.Customer
             }
 
             return null;
+        }
+
+        [HttpPut]
+        public async Task<string> SetCustomer([FromBody] Customer customer)
+        {
+            try
+            {
+                if (customer == null) return "error";
+
+                if (GlobalConstants.GlobalContext == null) return "Error";
+
+                GlobalConstants.GlobalContext.Customer.Add(customer);
+                await GlobalConstants.GlobalContext.SaveChangesAsync();
+            
+                return "Sucess";
+            }
+            catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
         }
     }
 }
