@@ -1,2 +1,2 @@
-Start-Process powershell -ArgumentList "-NoExit", "cd E:\CodeProjects\BETP\Backend; .\run_backend.ps1"
-Start-Process powershell -ArgumentList "-NoExit", "cd E:\CodeProjects\BETP\FrontEnd; .\run_frontend.ps1"
+Start-Process powershell -ArgumentList "-NoExit", "cd Backend; .\run_backend.ps1"
+Start-Process powershell -ArgumentList "-NoExit", "cd FrontEnd; .\run_frontend.ps1"
