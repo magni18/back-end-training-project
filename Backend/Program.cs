@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var databaseBuilder = new DbContextOptionsBuilder<DatabaseContext>();  
-    
+
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -28,6 +28,11 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.UseCors("DevCors");
+
+if (app.Environment.IsDevelopment())
+{
+    GlobalConstants.GlobalContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
